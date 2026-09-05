@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "MJ Skyframe",
+      "hasCanvas": false,
+      "bodyTextLen": 2248,
+      "bodyTextHash": "7107216c3f083d2f39b92070729eade6b936a0c38141d217e6c7708425cdb705",
+      "bodyTextPrefix": "MJ Skyframe Work Services Process Studio Book a shoot AERIAL FOR",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "MJ Skyframe",
+      "hasCanvas": false,
+      "bodyTextLen": 2206,
+      "bodyTextHash": "cd207a3cfbf8298af5c7ccb1d95c88c7517a2f587785eab5d8e4ba7fbb066995",
+      "bodyTextPrefix": "MJ Skyframe AERIAL FOR BUSINESS The shot from above that sells t",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
