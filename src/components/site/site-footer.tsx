@@ -10,10 +10,10 @@ export function SiteFooter() {
             <span className="text-sm font-medium">MJ Skyframe</span>
           </div>
           <p className="mt-3 max-w-sm text-sm text-muted-foreground">
-            Aerial stills and film for ads, listings, and job sites. Matthew and Josh.
+            Aerial stills and film for Ontario listings, hotels, venues, and developments. Matthew and Josh.
           </p>
         </div>
-        <p className="text-xs text-muted-foreground">Part 107 operators. Licensed and insured.</p>
+        <p className="text-xs text-muted-foreground">Transport Canada RPAS. Licensed and insured.</p>
       </div>
     </footer>
   );

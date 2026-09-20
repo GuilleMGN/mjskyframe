@@ -2,16 +2,16 @@ import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const PACKAGES = [
-  { id: "listing", label: "Listing stills", base: 350, unit: "property" },
-  { id: "ads", label: "Ad campaign day", base: 1800, unit: "day" },
-  { id: "progress", label: "Construction monthly", base: 650, unit: "month" },
-  { id: "brand", label: "Brand film", base: 2400, unit: "day" },
+  { id: "listing", label: "Listing stills", base: 200, unit: "property" },
+  { id: "hospitality", label: "Hotel / venue day", base: 800, unit: "day" },
+  { id: "progress", label: "Development monthly", base: 650, unit: "month" },
+  { id: "event", label: "Event coverage", base: 600, unit: "day" },
 ] as const;
 
 export function QuotePanel() {
-  const [pkg, setPkg] = useState<(typeof PACKAGES)[number]["id"]>("ads");
+  const [pkg, setPkg] = useState<(typeof PACKAGES)[number]["id"]>("listing");
   const [count, setCount] = useState(1);
-  const selected = PACKAGES.find((p) => p.id === pkg) ?? PACKAGES[1];
+  const selected = PACKAGES.find((p) => p.id === pkg) ?? PACKAGES[0];
   const total = useMemo(() => selected.base * count, [selected, count]);
 
   return (
@@ -19,7 +19,7 @@ export function QuotePanel() {
       <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Starting range</p>
       <h3 className="mt-3 font-display text-3xl text-fg">Ballpark a shoot</h3>
       <p className="mt-2 text-sm text-muted-foreground">
-        Not a bid. A honest floor so you know if we are in the same zip code.
+        Not a bid. An honest floor in CAD so you know if we are in the same city.
       </p>
       <div className="mt-6 grid gap-2">
         {PACKAGES.map((item) => (
@@ -49,7 +49,7 @@ export function QuotePanel() {
             onClick={() => setCount((n) => Math.max(1, n - 1))}
             aria-label="Decrease quantity"
           >
-            −
+            -
           </Button>
           <span className="w-8 text-center tabular-nums text-fg">{count}</span>
           <Button
