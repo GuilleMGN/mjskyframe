@@ -14,7 +14,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "MJ Skyframe — aerial photography and film for businesses, advertising, real estate, and construction. Matthew and Josh.",
+          "MJ Skyframe — aerial photography and film for Ontario real estate, hotels, venues, and development. Matthew and Josh.",
       },
       { name: "theme-color", content: "#0c0d0e" },
     ],

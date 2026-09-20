@@ -70,7 +70,7 @@ export function ContactForm() {
         <Textarea
           id="brief"
           required
-          placeholder="Site, date window, stills or film, who the ad is for."
+          placeholder="Site, date window, listing / hotel / venue / development."
           value={brief}
           onChange={(e) => setBrief(e.target.value)}
         />
