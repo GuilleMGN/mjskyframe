@@ -11,64 +11,64 @@ export const Route = createFileRoute("/")({ component: Home });
 const WORK = [
   {
     src: "/images/work-skyline.jpg",
-    title: "Downtown campaign",
-    tag: "Advertising",
+    title: "City plates",
+    tag: "Stock",
     span: "md:col-span-2",
   },
   {
     src: "/images/work-hotel.jpg",
-    title: "Coastal resort",
+    title: "Resort marketing",
     tag: "Hospitality",
     span: "",
   },
   {
     src: "/images/work-warehouse.jpg",
-    title: "Logistics yard",
-    tag: "Industrial",
+    title: "Site due diligence",
+    tag: "Development",
     span: "",
   },
   {
     src: "/images/work-construction.jpg",
-    title: "Mid-rise progress",
-    tag: "Construction",
+    title: "Progress update",
+    tag: "Development",
     span: "",
   },
   {
     src: "/images/work-neighborhood.jpg",
-    title: "New-home release",
+    title: "Listing context",
     tag: "Real estate",
     span: "",
   },
   {
     src: "/images/work-plaza.jpg",
-    title: "Retail plaza",
-    tag: "Commercial",
+    title: "Venue marketing",
+    tag: "Events",
     span: "md:col-span-2",
   },
 ];
 
 const SERVICES = [
   {
-    title: "Advertising film",
-    copy: "Hero establishing shots, product in place, and the overhead that makes a 15-second spot look expensive.",
+    title: "Real estate photography",
+    copy: "Listings need more than a kitchen. Aerial stills show lot lines, neighbours, commute, and how the house sits on the land — the context that moves Ontario buyers.",
   },
   {
-    title: "Listings and developments",
-    copy: "Stills and a short walkthrough that sell the site, not the living room staging.",
+    title: "Hotels, resorts, and venues",
+    copy: "Hospitality still sells from the ground. We shoot the property, the grounds, and the event space so a hotel, inn, farm, or racetrack looks like a destination, not a pin on a map.",
   },
   {
-    title: "Job-site progress",
-    copy: "Monthly flyovers for owners, GCs, and lenders who want proof, not a slide deck.",
+    title: "Development and due diligence",
+    copy: "Land, progress, and portfolio updates for builders and owners. Recurring flyovers that prove what changed — without a slide deck of excuses.",
   },
   {
-    title: "Brand and social",
-    copy: "Vertical cuts, looping plates, and stills your agency can actually grade.",
+    title: "Stock, municipal, and conservation",
+    copy: "City plates, water, and nature for businesses, municipalities, and conservation authorities. Clean footage you can license, not leftover vacation clips.",
   },
 ];
 
 const STEPS = [
-  { n: "01", title: "Brief", copy: "Site, dates, airspace, and what the ad has to do." },
-  { n: "02", title: "Plan", copy: "FAA check, shot list, and a weather window that is not a prayer." },
+  { n: "01", title: "Brief", copy: "Site, dates, stills or film, and who has to buy the result." },
+  { n: "02", title: "Plan", copy: "Transport Canada airspace, shot list, and a weather window that is not a prayer." },
   { n: "03", title: "Fly", copy: "Two operators. One flies. One watches the frame." },
   { n: "04", title: "Deliver", copy: "Selects in 48 hours. Graded film on the date we locked." },
 ];
@@ -88,14 +88,14 @@ function Home() {
           <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(12,13,14,0.92),rgba(12,13,14,0.35)_45%,rgba(12,13,14,0.4))]" />
           <div className="relative mx-auto flex min-h-[calc(100svh-4rem)] max-w-6xl flex-col justify-end px-5 pb-16 pt-24">
             <p className="text-xs font-medium uppercase tracking-[0.22em] text-accent">
-              Aerial for business
+              Aerial for Ontario
             </p>
             <h1 className="mt-4 max-w-3xl font-display text-5xl leading-[1.05] tracking-tight text-fg sm:text-6xl md:text-7xl">
               The shot from above that sells the ground.
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-fg/80 sm:text-lg">
-              MJ Skyframe is Matthew and Josh. Commercial drone stills and film for ads, listings,
-              and job sites — not birthday parties, not hobby reels.
+              MJ Skyframe is Matthew and Josh. We fly listings, hotels, venues, farms, and
+              developments across Ontario — the context a ground camera cannot fake.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg">
@@ -119,7 +119,7 @@ function Home() {
           <div className="flex items-end justify-between gap-6">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Selected work</p>
-              <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Frames that close deals.</h2>
+              <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Work that shows the lot, not the living room.</h2>
             </div>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2">
@@ -145,7 +145,7 @@ function Home() {
           <div className="mx-auto max-w-6xl px-5 py-20">
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Services</p>
             <h2 className="mt-3 max-w-2xl font-display text-4xl text-fg sm:text-5xl">
-              Built for agencies, developers, and GCs.
+              Built for realtors, hotels, venues, and developers.
             </h2>
             <div className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
               {SERVICES.map((s) => (
@@ -188,12 +188,13 @@ function Home() {
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">The studio</p>
               <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Matthew and Josh. One frame, two seats.</h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                We fly cine-grade aircraft for commercial work. Matthew runs the camera. Josh runs the
-                airspace. You get selects that look like a production, not a weekend gadget.
+                A part-time studio with a full brief. Matthew runs the camera. Josh runs the
+                airspace. We fly for Ontario realtors, inns, event spaces, farms, municipalities,
+                and small businesses that need the overhead to look like a production.
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                Insured. Part 107. No stunts over crowds. If the weather or the FAA says no, we say no
-                and rebook — we do not deliver garbage just to keep the invoice.
+                Transport Canada RPAS. Insured. No stunts over crowds. If weather or airspace says
+                no, we rebook — we do not deliver garbage just to keep the invoice.
               </p>
             </div>
           </div>
@@ -205,8 +206,9 @@ function Home() {
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Contact</p>
               <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Give us the site. We will give you a window.</h2>
               <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
-                Tell us the location, the date window, and whether you need stills, film, or both.
-                We reply with a hard number — not a discovery call that wastes an hour.
+                Tell us the location, the date window, and whether you need listing stills, hospitality
+                film, a venue, or a progress pass. We reply with a hard number — not a discovery call
+                that wastes an hour.
               </p>
             </div>
             <ContactForm />
