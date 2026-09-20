@@ -161,7 +161,7 @@ function Home() {
         <section id="process" className="mx-auto grid max-w-6xl gap-12 px-5 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Process</p>
-            <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Four beats. No circus.</h2>
+            <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Four step process.</h2>
             <ol className="mt-10 grid gap-6">
               {STEPS.map((step) => (
                 <li key={step.n} className="grid grid-cols-[auto_1fr] gap-4 border-t border-border pt-5">
@@ -186,15 +186,20 @@ function Home() {
             />
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">The studio</p>
-              <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Matthew and Josh. One frame, two seats.</h2>
+              <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Small team. Full production capability.</h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                A part-time studio with a full brief. Matthew runs the camera. Josh runs the
-                airspace. We fly for Ontario realtors, inns, event spaces, farms, municipalities,
-                and small businesses that need the overhead to look like a production.
+                Matthew and Josh bring professional drone cinematography to Ontario businesses, 
+                properties, and destinations. From realtors and inns to event spaces, farms, 
+                municipalities, and small businesses, we create high-impact aerial visuals designed 
+                to showcase every location from a perspective traditional photography simply can't reach.
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                Transport Canada RPAS. Insured. No stunts over crowds. If weather or airspace says
-                no, we rebook — we do not deliver garbage just to keep the invoice.
+                Your satisfaction, safety, and peace of mind are our priorities. As Transport Canada-compliant 
+                RPAS operators, we maintain appropriate insurance and conduct every flight with professionalism 
+                and consideration for our clients, their properties, and the surrounding environment.
+                We never compromise on safety or quality. If weather conditions or airspace restrictions prevent 
+                us from capturing the footage you deserve, we will work with you to reschedule at a convenient time. 
+                Our commitment is to deliver exceptional aerial imagery—not simply to complete a booking.
               </p>
             </div>
           </div>
