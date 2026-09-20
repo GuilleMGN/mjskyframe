@@ -49,7 +49,7 @@ export function QuotePanel() {
             onClick={() => setCount((n) => Math.max(1, n - 1))}
             aria-label="Decrease quantity"
           >
-            -
+            −
           </Button>
           <span className="w-8 text-center tabular-nums text-fg">{count}</span>
           <Button
