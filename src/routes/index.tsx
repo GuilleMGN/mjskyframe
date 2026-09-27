@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowDownRight } from "lucide-react";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
@@ -102,7 +102,7 @@ function Home() {
                 <a href="#contact">Book a shoot</a>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <a href="#work">See the work</a>
+                <Link to="/work">See the work</Link>
               </Button>
             </div>
             <a
@@ -116,11 +116,14 @@ function Home() {
         </section>
 
         <section id="work" className="mx-auto max-w-6xl px-5 py-20">
-          <div className="flex items-end justify-between gap-6">
+          <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Selected work</p>
               <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Work that shows the lot, not the living room.</h2>
             </div>
+            <Button asChild variant="secondary">
+              <Link to="/work">Open the gallery</Link>
+            </Button>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {WORK.map((item) => (
@@ -188,17 +191,17 @@ function Home() {
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">The studio</p>
               <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Small team. Full production capability.</h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                Matthew and Josh bring professional drone cinematography to Ontario businesses, 
-                properties, and destinations. From realtors and inns to event spaces, farms, 
-                municipalities, and small businesses, we create high-impact aerial visuals designed 
+                Matthew and Josh bring professional drone cinematography to Ontario businesses,
+                properties, and destinations. From realtors and inns to event spaces, farms,
+                municipalities, and small businesses, we create high-impact aerial visuals designed
                 to showcase every location from a perspective traditional photography simply can't reach.
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                Your satisfaction, safety, and peace of mind are our priorities. As Transport Canada-compliant 
-                RPAS operators, we maintain appropriate insurance and conduct every flight with professionalism 
+                Your satisfaction, safety, and peace of mind are our priorities. As Transport Canada-compliant
+                RPAS operators, we maintain appropriate insurance and conduct every flight with professionalism
                 and consideration for our clients, their properties, and the surrounding environment.
-                We never compromise on safety or quality. If weather conditions or airspace restrictions prevent 
-                us from capturing the footage you deserve, we will work with you to reschedule at a convenient time. 
+                We never compromise on safety or quality. If weather conditions or airspace restrictions prevent
+                us from capturing the footage you deserve, we will work with you to reschedule at a convenient time.
                 Our commitment is to deliver exceptional aerial imagery—not simply to complete a booking.
               </p>
             </div>

@@ -1,37 +1,55 @@
 import { useState } from "react";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/site/logo";
 
-const LINKS = [
-  { href: "#work", label: "Work" },
-  { href: "#services", label: "Services" },
-  { href: "#process", label: "Process" },
-  { href: "#about", label: "Studio" },
+type NavLink =
+  | { kind: "route"; to: "/work"; label: string }
+  | { kind: "hash"; href: string; label: string };
+
+const LINKS: NavLink[] = [
+  { kind: "route", to: "/work", label: "Work" },
+  { kind: "hash", href: "/#services", label: "Services" },
+  { kind: "hash", href: "/#process", label: "Process" },
+  { kind: "hash", href: "/#about", label: "Studio" },
 ];
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-bg/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <a href="#top" className="flex items-center gap-2.5 text-fg">
+        <Link to="/" className="flex items-center gap-2.5 text-fg">
           <Logo className="h-6 w-6 text-accent" />
           <span className="text-sm font-medium tracking-wide">MJ Skyframe</span>
-        </a>
+        </Link>
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
-          {LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-muted-foreground transition-colors duration-[var(--motion-quick)] hover:text-fg"
-            >
-              {link.label}
-            </a>
-          ))}
+          {LINKS.map((link) =>
+            link.kind === "route" ? (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`text-sm transition-colors duration-[var(--motion-quick)] ${
+                  pathname === link.to ? "text-fg" : "text-muted-foreground hover:text-fg"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm text-muted-foreground transition-colors duration-[var(--motion-quick)] hover:text-fg"
+              >
+                {link.label}
+              </a>
+            ),
+          )}
           <Button asChild size="sm">
-            <a href="#contact">Book a shoot</a>
+            <a href="/#contact">Book a shoot</a>
           </Button>
         </nav>
         <button
@@ -47,18 +65,29 @@ export function SiteHeader() {
       {open ? (
         <nav className="border-t border-border bg-bg px-5 py-4 md:hidden" aria-label="Mobile">
           <div className="flex flex-col gap-1">
-            {LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="flex h-11 items-center text-base text-fg"
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
+            {LINKS.map((link) =>
+              link.kind === "route" ? (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className="flex h-11 items-center text-base text-fg"
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="flex h-11 items-center text-base text-fg"
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ),
+            )}
             <Button asChild className="mt-2 w-full">
-              <a href="#contact" onClick={() => setOpen(false)}>
+              <a href="/#contact" onClick={() => setOpen(false)}>
                 Book a shoot
               </a>
             </Button>
