@@ -196,14 +196,6 @@ function Home() {
                 municipalities, and small businesses, we create high-impact aerial visuals designed
                 to showcase every location from a perspective traditional photography simply can't reach.
               </p>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                Your satisfaction, safety, and peace of mind are our priorities. As Transport Canada-compliant
-                RPAS operators, we maintain appropriate insurance and conduct every flight with professionalism
-                and consideration for our clients, their properties, and the surrounding environment.
-                We never compromise on safety or quality. If weather conditions or airspace restrictions prevent
-                us from capturing the footage you deserve, we will work with you to reschedule at a convenient time.
-                Our commitment is to deliver exceptional aerial imagery—not simply to complete a booking.
-              </p>
             </div>
           </div>
         </section>
@@ -214,9 +206,12 @@ function Home() {
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Contact</p>
               <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Give us the site. We will give you a window.</h2>
               <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
-                Tell us the location, the date window, and whether you need listing stills, hospitality
-                film, a venue, or a progress pass. We reply with a hard number — not a discovery call
-                that wastes an hour.
+                Your satisfaction, safety, and peace of mind are our priorities. As Transport Canada-compliant
+                RPAS operators, we maintain appropriate insurance and conduct every flight with professionalism
+                and consideration for our clients, their properties, and the surrounding environment.
+                We never compromise on safety or quality. If weather conditions or airspace restrictions prevent
+                us from capturing the footage you deserve, we will work with you to reschedule at a convenient time.
+                Our commitment is to deliver exceptional aerial imagery—not simply to complete a booking.
               </p>
             </div>
             <ContactForm />
