@@ -94,8 +94,8 @@ function Home() {
               The shot from above that sells the ground.
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-fg/80 sm:text-lg">
-              MJ Skyframe is Matthew and Josh. We fly listings, hotels, venues, farms, and
-              developments across Ontario — the context a ground camera cannot fake.
+              MJ Skyframe is an Ontario-based aerial production team specializing in professional drone photography and video for 
+              listings, hotels, venues, farms, and developments—capturing the perspective, scale, and context that only the sky can provide.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg">
@@ -109,7 +109,7 @@ function Home() {
               href="#work"
               className="mt-12 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-fg"
             >
-              Scroll the reel
+              More details
               <ArrowDownRight className="h-4 w-4" />
             </a>
           </div>
