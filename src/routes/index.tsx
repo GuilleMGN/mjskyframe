@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { QuotePanel } from "@/components/site/quote-panel";
 import { ContactForm } from "@/components/site/contact-form";
+import { SocialLinks } from "@/components/site/social-links";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({ component: Home });
@@ -94,7 +95,7 @@ function Home() {
               The shot from above that sells the ground.
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-fg/80 sm:text-lg">
-              MJ Skyframe is an Ontario-based aerial production team specializing in professional drone photography and video for 
+              MJ Skyframe is an Ontario-based aerial production team specializing in professional drone photography and video for
               listings, hotels, venues, farms, and developments—capturing the perspective, scale, and context that only the sky can provide.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -201,20 +202,23 @@ function Home() {
         </section>
 
         <section id="contact" className="border-t border-border bg-surface/40">
-          <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 lg:grid-cols-2">
-            <div>
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Contact</p>
-              <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Give us the site. We will give you a window.</h2>
-              <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
-                Your satisfaction, safety, and peace of mind are our priorities. As Transport Canada-compliant
-                RPAS operators, we maintain appropriate insurance and conduct every flight with professionalism
-                and consideration for our clients, their properties, and the surrounding environment.
-                We never compromise on safety or quality. If weather conditions or airspace restrictions prevent
-                us from capturing the footage you deserve, we will work with you to reschedule at a convenient time.
-                Our commitment is to deliver exceptional aerial imagery—not simply to complete a booking.
-              </p>
+          <div className="mx-auto max-w-6xl px-5 py-20">
+            <div className="grid gap-10 lg:grid-cols-2">
+              <div>
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Contact</p>
+                <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Give us the site. We will give you a window.</h2>
+                <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
+                  Your satisfaction, safety, and peace of mind are our priorities. As Transport Canada-compliant
+                  RPAS operators, we maintain appropriate insurance and conduct every flight with professionalism
+                  and consideration for our clients, their properties, and the surrounding environment.
+                  We never compromise on safety or quality. If weather conditions or airspace restrictions prevent
+                  us from capturing the footage you deserve, we will work with you to reschedule at a convenient time.
+                  Our commitment is to deliver exceptional aerial imagery—not simply to complete a booking.
+                </p>
+              </div>
+              <ContactForm />
             </div>
-            <ContactForm />
+            <SocialLinks />
           </div>
         </section>
       </main>
