@@ -14,18 +14,12 @@ const WORK = [
     src: "/images/work-skyline.jpg",
     title: "City plates",
     tag: "Stock",
-    span: "md:col-span-2",
-  },
-  {
-    src: "/images/work-hotel.jpg",
-    title: "Resort marketing",
-    tag: "Hospitality",
     span: "",
   },
   {
-    src: "/images/work-warehouse.jpg",
-    title: "Site due diligence",
-    tag: "Development",
+    src: "/images/work-plaza.jpg",
+    title: "Venue marketing",
+    tag: "Events",
     span: "",
   },
   {
@@ -40,30 +34,24 @@ const WORK = [
     tag: "Real estate",
     span: "",
   },
-  {
-    src: "/images/work-plaza.jpg",
-    title: "Venue marketing",
-    tag: "Events",
-    span: "md:col-span-2",
-  },
 ];
 
 const SERVICES = [
   {
     title: "Real estate photography",
-    copy: "Listings need more than a kitchen. Aerial stills show lot lines, neighbours, commute, and how the house sits on the land — the context that moves Ontario buyers.",
+    copy: "Show the property in its full context. Our aerial imagery captures the home, lot, surrounding neighbourhood, and its relationship to the landscape.",
   },
   {
     title: "Hotels, resorts, and venues",
-    copy: "Hospitality still sells from the ground. We shoot the property, the grounds, and the event space so a hotel, inn, farm, or racetrack looks like a destination, not a pin on a map.",
+    copy: "Give guests more than a location. Our aerial imagery captures the property, grounds, and surrounding spaces to showcase hotels, inns, farms, and event venues as destinations worth experiencing.",
   },
   {
-    title: "Development and due diligence",
-    copy: "Land, progress, and portfolio updates for builders and owners. Recurring flyovers that prove what changed — without a slide deck of excuses.",
+    title: "Development and progress updates",
+    copy: "Track progress from above. We provide clear, consistent aerial documentation for developers and property owners, capturing site conditions, construction progress, and changes over time.",
   },
   {
     title: "Stock, municipal, and conservation",
-    copy: "City plates, water, and nature for businesses, municipalities, and conservation authorities. Clean footage you can license, not leftover vacation clips.",
+    copy: "Professional aerial footage of cities, waterways, landscapes, and natural spaces for businesses, municipalities, and conservation organizations—captured for licensing, campaigns, and ongoing media needs.",
   },
 ];
 
