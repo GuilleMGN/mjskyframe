@@ -1,21 +1,3 @@
-/**
- * MJ Skyframe gallery — this is the only file you need to edit
- * when you add stills or YouTube films.
- *
- * PHOTOS
- *   1. Drop a compressed JPEG/WebP into public/images/ (under ~1 MB each).
- *   2. Add a { kind: "photo", ... } object below.
- *   3. src is the public path, e.g. "/images/listing-oakville.jpg"
- *
- * VIDEOS
- *   1. Upload the film to your YouTube channel (public or unlisted).
- *   2. Paste the watch URL or the 11-character id into `youtube`.
- *   3. Add a { kind: "video", ... } object below.
- *
- * The two films below are public examples so the page is not empty.
- * Replace them with your own links when the channel is ready.
- */
-
 export type GalleryPhoto = {
   kind: "photo";
   src: string;
@@ -26,7 +8,6 @@ export type GalleryPhoto = {
 
 export type GalleryVideo = {
   kind: "video";
-  /** Full YouTube URL or the 11-character video id. */
   youtube: string;
   title: string;
   tag: string;
@@ -37,57 +18,85 @@ export type GalleryItem = GalleryPhoto | GalleryVideo;
 export const GALLERY: GalleryItem[] = [
   {
     kind: "video",
-    youtube: "https://www.youtube.com/watch?v=LXb3EKWsInQ",
-    title: "Example reel — replace with yours",
-    tag: "Film",
+    youtube: "https://youtu.be/1yNUyskKDr4?si=zYZnHXoWj1AI5Tp3",
+    title: "Ferris Wheel",
+    tag: "Attractions",
+  },
+  {
+    kind: "video",
+    youtube: "https://youtu.be/gAOm2gWTzPM?si=LmR6cTxCFFUzD23u",
+    title: "Demolition Derby",
+    tag: "Events",
   },
   {
     kind: "photo",
-    src: "/images/work-skyline.jpg",
-    title: "City plates",
-    tag: "Stock",
-    alt: "Aerial of a city skyline at dusk",
+    src: "/images/niagara-falls.jpg",
+    title: "Niagara Falls",
+    tag: "Cityscape",
+    alt: "Aerial of a city skyline at night",
+  },
+  {
+    kind: "photo",
+    src: "/images/canadas-wonderland.jpg",
+    title: "Canada's Wonderland",
+    tag: "Attractions",
+    alt: "Aerial of a park attraction",
+  },
+  {
+    kind: "photo",
+    src: "/images/westfield-river.png",
+    title: "Westfield River",
+    tag: "Conservation",
+    alt: "Aerial of a river",
   },
   {
     kind: "photo",
     src: "/images/work-hotel.jpg",
-    title: "Resort marketing",
-    tag: "Hospitality",
-    alt: "Aerial of a hotel and grounds",
-  },
-  {
-    kind: "video",
-    youtube: "https://www.youtube.com/watch?v=H_t7kuIiRoo",
-    title: "Example aerial — replace with yours",
-    tag: "Film",
+    title: "Hillsburgh Pond",
+    tag: "Conservation",
+    alt: "Aerial of a pond",
   },
   {
     kind: "photo",
-    src: "/images/work-neighborhood.jpg",
-    title: "Listing context",
-    tag: "Real estate",
-    alt: "Aerial of a neighbourhood and lot lines",
+    src: "/images/floatplane-property.jpg",
+    title: "Property Listing",
+    tag: "Real Estate",
+    alt: "Aerial of a backyard",
   },
   {
     kind: "photo",
-    src: "/images/work-warehouse.jpg",
-    title: "Site due diligence",
-    tag: "Development",
-    alt: "Aerial of an industrial site",
+    src: "/images/tobermory-property.jpg",
+    title: "Airbnb Listing",
+    tag: "Real Estate",
+    alt: "Aerial of a resort",
   },
   {
     kind: "photo",
-    src: "/images/work-construction.jpg",
+    src: "/images/corn-field.jpg",
+    title: "Corn Field",
+    tag: "Agriculture",
+    alt: "Aerial of a farm",
+  },
+  {
+    kind: "photo",
+    src: "/images/tractor-farm.jpg",
     title: "Progress update",
-    tag: "Development",
-    alt: "Aerial of a construction site",
+    tag: "Agriculture",
+    alt: "Aerial of a farm",
   },
   {
     kind: "photo",
-    src: "/images/work-plaza.jpg",
-    title: "Venue marketing",
-    tag: "Events",
-    alt: "Aerial of a public plaza",
+    src: "/images/bruce-anchor-cruises.jpg",
+    title: "Bruce Anchor",
+    tag: "Tourism",
+    alt: "Aerial of a tourist cruise",
+  },
+  {
+    kind: "photo",
+    src: "/images/tobermory-eclipse.jpg",
+    title: "Bruce Anchor",
+    tag: "Tourism",
+    alt: "Aerial of a tourist cruise",
   },
 ];
 
