@@ -80,18 +80,18 @@ function Home() {
               Aerial for Ontario
             </p>
             <h1 className="mt-4 max-w-3xl font-display text-5xl leading-[1.05] tracking-tight text-fg sm:text-6xl md:text-7xl">
-              See the Bigger Picture.
+              The shot from above that sells the ground.
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-fg/80 sm:text-lg">
               MJ Skyframe is an Ontario-based aerial production team specializing in professional drone photography and video for
-              listings, hotels, venues, farms, and developments—capturing the perspective, scale, and context that only the sky can provide.
+              properties, hotels, events, venues, farms, and businesses—capturing a perspective only the sky can provide.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg">
                 <a href="#contact">Book a shoot</a>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link to="/work">See the work</Link>
+                <Link to="/work">View Gallery</Link>
               </Button>
             </div>
             <a
@@ -108,7 +108,7 @@ function Home() {
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Selected work</p>
-              <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Work that shows the lot, not the living room.</h2>
+              <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">See the bigger picture.</h2>
             </div>
             <Button asChild variant="secondary">
               <Link to="/work">View gallery</Link>
