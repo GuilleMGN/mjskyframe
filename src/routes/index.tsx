@@ -11,7 +11,7 @@ export const Route = createFileRoute("/")({ component: Home });
 
 const WORK = [
   {
-    src: "/images/work-skyline.jpg",
+    src: "/images/niagara-falls.jpg",
     title: "City plates",
     tag: "Stock",
     span: "",
@@ -23,13 +23,13 @@ const WORK = [
     span: "",
   },
   {
-    src: "/images/work-construction.jpg",
+    src: "/images/tractor-farm.jpg",
     title: "Progress update",
     tag: "Development",
     span: "",
   },
   {
-    src: "/images/work-neighborhood.jpg",
+    src: "/images/floatplane-property.jpg",
     title: "Listing context",
     tag: "Real estate",
     span: "",
@@ -70,8 +70,8 @@ function Home() {
       <main>
         <section className="relative min-h-[100svh] pt-16">
           <img
-            src="/images/hero-campus.jpg"
-            alt="Aerial of a commercial campus at blue hour"
+            src="/images/markham-fair-fireworks.jpg"
+            alt="Aerial of a night shot with fireworks"
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(12,13,14,0.92),rgba(12,13,14,0.35)_45%,rgba(12,13,14,0.4))]" />
@@ -80,7 +80,7 @@ function Home() {
               Aerial for Ontario
             </p>
             <h1 className="mt-4 max-w-3xl font-display text-5xl leading-[1.05] tracking-tight text-fg sm:text-6xl md:text-7xl">
-              The shot from above that sells the ground.
+              See the Bigger Picture.
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-fg/80 sm:text-lg">
               MJ Skyframe is an Ontario-based aerial production team specializing in professional drone photography and video for
@@ -111,7 +111,7 @@ function Home() {
               <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Work that shows the lot, not the living room.</h2>
             </div>
             <Button asChild variant="secondary">
-              <Link to="/work">Open the gallery</Link>
+              <Link to="/work">View gallery</Link>
             </Button>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2">
@@ -137,7 +137,7 @@ function Home() {
           <div className="mx-auto max-w-6xl px-5 py-20">
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Services</p>
             <h2 className="mt-3 max-w-2xl font-display text-4xl text-fg sm:text-5xl">
-              Built for realtors, hotels, venues, and developers.
+              Professional drone photography & video across Ontario.
             </h2>
             <div className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
               {SERVICES.map((s) => (
