@@ -88,7 +88,7 @@ function Home() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg">
-                <a href="#contact">Book a shoot</a>
+                <a href="#contact">Contact us</a>
               </Button>
               <Button asChild variant="secondary" size="lg">
                 <Link to="/work">View Gallery</Link>
@@ -111,7 +111,7 @@ function Home() {
               <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">See the bigger picture.</h2>
             </div>
             <Button asChild variant="secondary">
-              <Link to="/work">View gallery</Link>
+              <Link to="/work">View Gallery</Link>
             </Button>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2">
@@ -150,9 +150,9 @@ function Home() {
           </div>
         </section>
 
-        <section id="process" className="mx-auto grid max-w-6xl gap-12 px-5 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+        <section id="pricing" className="mx-auto grid max-w-6xl gap-12 px-5 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Process</p>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Pricing</p>
             <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Four step process.</h2>
             <ol className="mt-10 grid gap-6">
               {STEPS.map((step) => (
@@ -201,7 +201,6 @@ function Home() {
                   and consideration for our clients, their properties, and the surrounding environment.
                   We never compromise on safety or quality. If weather conditions or airspace restrictions prevent
                   us from capturing the footage you deserve, we will work with you to reschedule at a convenient time.
-                  Our commitment is to deliver exceptional aerial imagery—not simply to complete a booking.
                 </p>
               </div>
               <ContactForm />
