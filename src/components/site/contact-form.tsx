@@ -65,11 +65,11 @@ export function ContactForm() {
   if (sent) {
     return (
       <div className="rounded-xl border border-border bg-surface p-6">
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Received</p>
-        <h3 className="mt-3 font-display text-3xl text-fg">We have the brief.</h3>
+        <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Message sent</p>
+        <h3 className="mt-3 font-display text-3xl text-fg">Thank you for reaching out.</h3>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          That landed in the MJ Skyframe inbox. Matthew or Josh will reply within one business day
-          with a window, a price, and whether the airspace is even legal that week.
+          Your message has been received. Matthew or Josh will reply within one business day to
+          discuss availability, pricing, and next steps.
         </p>
         <Button type="button" variant="secondary" className="mt-6" onClick={() => setSent(false)}>
           Send another
@@ -134,25 +134,25 @@ export function ContactForm() {
           id="subject"
           name="subject"
           required
-          placeholder="Listing stills, hotel reel, venue, progress pass…"
+          placeholder="Real estate, hotel or venue, event, development…"
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
         />
       </div>
       <div className="mt-4 grid gap-2">
-        <Label htmlFor="brief">What are we flying?</Label>
+        <Label htmlFor="brief">Project details</Label>
         <Textarea
           id="brief"
           name="message"
           required
-          placeholder="Site, date window, listing / hotel / venue / development."
+          placeholder="Location, preferred dates, and a short description of the project."
           value={brief}
           onChange={(e) => setBrief(e.target.value)}
         />
       </div>
       {error ? <p className="mt-4 text-sm text-accent">{error}</p> : null}
       <Button type="submit" className="mt-6 w-full sm:w-auto" disabled={busy}>
-        {busy ? "Sending…" : "Request a date"}
+        {busy ? "Sending…" : "Send message"}
       </Button>
     </form>
   );

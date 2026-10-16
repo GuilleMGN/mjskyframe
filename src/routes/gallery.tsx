@@ -19,11 +19,11 @@ function GalleryPage() {
         <section className="mx-auto max-w-6xl px-5 pb-10 pt-16">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Gallery</p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl text-fg sm:text-6xl">
-            Stills and film from above.
+            Photos, videos, and reels from above.
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
-            Click a still to open it. Play a film in place. Listing, hospitality, and
-            development work from Ontario — stills we host here, films from our YouTube channel.
+            Browse our aerial work from across Ontario. Select a photo to view it full size, or play
+            a video or reel right on the page. Use the filters to view photos, videos, or reels.
           </p>
         </section>
         <section className="mx-auto max-w-6xl px-5 pb-20">
@@ -32,9 +32,11 @@ function GalleryPage() {
         <section className="border-t border-border bg-surface/40">
           <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-5 py-16 sm:flex-row sm:items-center">
             <div>
-              <h2 className="font-display text-3xl text-fg sm:text-4xl">Need this over your site?</h2>
+              <h2 className="font-display text-3xl text-fg sm:text-4xl">Planning an aerial project?</h2>
               <p className="mt-2 text-sm text-muted-foreground">
-                Listings, hotels, venues, developments. Give us the location and a date window.
+                We provide aerial photography and video for real estate, hotels and venues, events,
+                development sites, and municipal and conservation projects across Ontario. Tell us
+                about your project and we will follow up with availability and a quote.
               </p>
             </div>
             <Button asChild size="lg">

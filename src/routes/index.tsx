@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({ component: Home });
 const WORK = [
   {
     src: "/images/niagara-falls.jpg",
-    title: "City plates",
+    title: "Cityscape",
     tag: "Stock",
     span: "",
   },
@@ -30,7 +30,7 @@ const WORK = [
   },
   {
     src: "/images/floatplane-property.jpg",
-    title: "Listing context",
+    title: "Property listing",
     tag: "Real estate",
     span: "",
   },
@@ -38,20 +38,20 @@ const WORK = [
 
 const SERVICES = [
   {
-    title: "Real estate photography",
-    copy: "Show the property in its full context. Our aerial imagery captures the home, lot, surrounding neighbourhood, and its relationship to the landscape.",
+    title: "Real Estate",
+    copy: "Aerial photography and video that present a property in context: the home, the lot, the surrounding neighbourhood, and nearby amenities. Delivered for listings, websites, and social media.",
   },
   {
-    title: "Hotels, resorts, and venues",
-    copy: "Give guests more than a location. Our aerial imagery captures the property, grounds, and surrounding spaces to showcase hotels, inns, farms, and event venues as destinations worth experiencing.",
+    title: "Hotels, Venues & Events",
+    copy: "Marketing imagery for hotels, resorts, inns, and event venues, along with live event coverage. We showcase the property, grounds, and surroundings, and capture events from a vantage point only the air can offer.",
   },
   {
-    title: "Development and progress updates",
-    copy: "Track progress from above. We provide clear, consistent aerial documentation for developers and property owners, capturing site conditions, construction progress, and changes over time.",
+    title: "Development & Site Progress",
+    copy: "Consistent aerial documentation for developers and property owners. Regular site captures record construction progress and changing site conditions, supporting reporting, due diligence, and portfolio updates.",
   },
   {
-    title: "Stock, municipal, and conservation",
-    copy: "Professional aerial footage of cities, waterways, landscapes, and natural spaces for businesses, municipalities, and conservation organizations—captured for licensing, campaigns, and ongoing media needs.",
+    title: "Municipal, Conservation & Stock",
+    copy: "Aerial footage of cities, waterways, and natural landscapes for municipalities, conservation authorities, tourism organizations, and businesses, available for custom projects or licensing.",
   },
 ];
 
@@ -137,8 +137,12 @@ function Home() {
           <div className="mx-auto max-w-6xl px-5 py-20">
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Services</p>
             <h2 className="mt-3 max-w-2xl font-display text-4xl text-fg sm:text-5xl">
-              Professional drone photography & video across Ontario.
+              Aerial photography and video for Ontario businesses.
             </h2>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              From property listings to live events, we deliver professional aerial imagery tailored
+              to how you plan to use it.
+            </p>
             <div className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
               {SERVICES.map((s) => (
                 <article key={s.title} className="bg-bg p-6 sm:p-8">
@@ -194,7 +198,7 @@ function Home() {
             <div className="grid gap-10 lg:grid-cols-2">
               <div>
                 <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Contact us</p>
-                <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Give us the site. We will give you a window.</h2>
+                <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Tell us about your project.</h2>
                 <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
                   Your satisfaction, safety, and peace of mind are our priorities. As Transport Canada-compliant
                   RPAS operators, we maintain appropriate insurance and conduct every flight with professionalism
