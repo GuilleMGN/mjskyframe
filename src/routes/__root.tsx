@@ -1,6 +1,4 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
-import { AuthProvider } from "@/lib/auth/provider";
-import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "MJ Skyframe";
@@ -17,12 +15,19 @@ export const Route = createRootRoute({
           "MJ Skyframe — aerial photography and film for Ontario. Matthew and Josh.",
       },
       { name: "theme-color", content: "#0c0d0e" },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: APP_NAME },
+      { property: "og:title", content: APP_NAME },
+      {
+        property: "og:description",
+        content:
+          "MJ Skyframe — aerial photography and film for Ontario. Matthew and Josh.",
+      },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "stylesheet", href: appCss },
-      { rel: "manifest", href: "/__grok/manifest.webmanifest" },
-      { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -37,10 +42,7 @@ export const Route = createRootRoute({
         <HeadContent />
       </head>
       <body className="min-h-screen bg-bg text-fg">
-        <PreviewHostBridge />
-        <AuthProvider>
-          <Outlet />
-        </AuthProvider>
+        <Outlet />
         <Scripts />
       </body>
     </html>
