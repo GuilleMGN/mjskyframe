@@ -11,7 +11,9 @@ export function SiteFooter() {
             <span className="text-sm font-medium">MJ Skyframe</span>
           </Link>
           <p className="mt-3 max-w-sm text-sm text-muted-foreground">
-            Aerial film and photography for Ontario. Brought to you by Matthew and Josh.
+            Aerial film and photography for Ontario.
+            <br />
+            Brought to you by Matthew and Josh.
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:items-end">

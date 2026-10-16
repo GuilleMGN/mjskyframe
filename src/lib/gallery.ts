@@ -13,7 +13,33 @@ export type GalleryVideo = {
   tag: string;
 };
 
-export type GalleryItem = GalleryPhoto | GalleryVideo;
+/**
+ * Reels are vertical (9:16) media. A reel is either a vertical photo (`src` + `alt`)
+ * or a vertical video (`youtube` link, Shorts links work; optional `poster` thumbnail).
+ *
+ * Example — add inside GALLERY below:
+ *   { kind: "reel", src: "/images/my-vertical.jpg", alt: "Aerial of ...", title: "...", tag: "..." },
+ *   { kind: "reel", youtube: "https://youtube.com/shorts/XXXXXXXXXXX", title: "...", tag: "..." },
+ */
+export type GalleryReelPhoto = {
+  kind: "reel";
+  src: string;
+  title: string;
+  tag: string;
+  alt: string;
+};
+
+export type GalleryReelVideo = {
+  kind: "reel";
+  youtube: string;
+  poster?: string;
+  title: string;
+  tag: string;
+};
+
+export type GalleryReel = GalleryReelPhoto | GalleryReelVideo;
+
+export type GalleryItem = GalleryPhoto | GalleryVideo | GalleryReel;
 
 export const GALLERY: GalleryItem[] = [
   {

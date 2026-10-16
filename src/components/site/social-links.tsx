@@ -47,7 +47,7 @@ function XLogo({ className }: { className?: string }) {
 export function SocialLinks() {
   return (
     <div className="mt-12 border-t border-border pt-8">
-      <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Follow the work</p>
+      <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Follow us</p>
       <ul className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-6">
         {LINKS.map((item) => {
           const Icon = item.icon;
