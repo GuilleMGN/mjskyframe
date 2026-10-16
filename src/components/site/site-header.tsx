@@ -5,13 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/site/logo";
 
 type NavLink =
-  | { kind: "route"; to: "/work"; label: string }
+  | { kind: "route"; to: "/gallery"; label: string }
   | { kind: "hash"; href: string; label: string };
 
 const LINKS: NavLink[] = [
-  { kind: "route", to: "/work", label: "Work" },
+  { kind: "route", to: "/gallery", label: "Gallery" },
   { kind: "hash", href: "/#services", label: "Services" },
-  { kind: "hash", href: "/#process", label: "Process" },
+  { kind: "hash", href: "/#pricing", label: "Pricing" },
   { kind: "hash", href: "/#about", label: "Studio" },
 ];
 
@@ -49,7 +49,7 @@ export function SiteHeader() {
             ),
           )}
           <Button asChild size="sm">
-            <a href="/#contact">Book a shoot</a>
+            <a href="/#contact">Contact us</a>
           </Button>
         </nav>
         <button
@@ -88,7 +88,7 @@ export function SiteHeader() {
             )}
             <Button asChild className="mt-2 w-full">
               <a href="/#contact" onClick={() => setOpen(false)}>
-                Book a shoot
+                Contact us
               </a>
             </Button>
           </div>

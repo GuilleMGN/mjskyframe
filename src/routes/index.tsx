@@ -91,7 +91,7 @@ function Home() {
                 <a href="#contact">Contact us</a>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <Link to="/work">View Gallery</Link>
+                <Link to="/gallery">View Gallery</Link>
               </Button>
             </div>
             <a
@@ -111,7 +111,7 @@ function Home() {
               <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">See the bigger picture.</h2>
             </div>
             <Button asChild variant="secondary">
-              <Link to="/work">View Gallery</Link>
+              <Link to="/gallery">View Gallery</Link>
             </Button>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2">
@@ -193,7 +193,7 @@ function Home() {
           <div className="mx-auto max-w-6xl px-5 py-20">
             <div className="grid gap-10 lg:grid-cols-2">
               <div>
-                <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Contact</p>
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Contact us</p>
                 <h2 className="mt-3 font-display text-4xl text-fg sm:text-5xl">Give us the site. We will give you a window.</h2>
                 <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
                   Your satisfaction, safety, and peace of mind are our priorities. As Transport Canada-compliant

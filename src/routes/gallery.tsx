@@ -4,14 +4,14 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { GalleryGrid } from "@/components/site/gallery-grid";
 import { Button } from "@/components/ui/button";
 
-export const Route = createFileRoute("/work")({
+export const Route = createFileRoute("/gallery")({
   head: () => ({
-    meta: [{ title: "Work — MJ Skyframe" }],
+    meta: [{ title: "Gallery — MJ Skyframe" }],
   }),
-  component: WorkPage,
+  component: GalleryPage,
 });
 
-function WorkPage() {
+function GalleryPage() {
   return (
     <div className="min-h-screen bg-bg text-fg">
       <SiteHeader />
@@ -39,7 +39,7 @@ function WorkPage() {
             </div>
             <Button asChild size="lg">
               <Link to="/" hash="contact">
-                Book a shoot
+                Contact us
               </Link>
             </Button>
           </div>

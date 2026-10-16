@@ -29,7 +29,7 @@ export function SiteFooter() {
             >
               Home
             </a>
-            <Link to="/work" className="text-muted-foreground hover:text-fg">
+            <Link to="/gallery" className="text-muted-foreground hover:text-fg">
               Gallery
             </Link>
           </div>
