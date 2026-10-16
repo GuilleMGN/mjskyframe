@@ -23,7 +23,7 @@ export function SiteHeader() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-bg/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
         <Link to="/" className="flex items-center gap-2.5 text-fg">
-          <Logo className="h-6 w-6 text-accent" />
+          <Logo className="h-9 w-auto" />
           <span className="text-sm font-medium tracking-wide">MJ Skyframe</span>
         </Link>
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
