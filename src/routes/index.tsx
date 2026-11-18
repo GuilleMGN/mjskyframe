@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { QuotePanel } from "@/components/site/quote-panel";
 import { ContactForm } from "@/components/site/contact-form";
 import { SocialLinks } from "@/components/site/social-links";
+import { Watermark } from "@/components/site/watermark";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({ component: Home });
@@ -121,8 +122,10 @@ function Home() {
                   <img
                     src={item.src}
                     alt={item.title}
+                    draggable={false}
                     className="h-full w-full object-cover transition-transform duration-[var(--motion-fast)] ease-[var(--ease-out)] group-hover:scale-[1.03]"
                   />
+                  <Watermark />
                   <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-[linear-gradient(to_top,rgba(12,13,14,0.85),transparent)] px-4 py-4">
                     <span className="text-sm font-medium text-fg">{item.title}</span>
                     <span className="text-xs text-muted-foreground">{item.tag}</span>

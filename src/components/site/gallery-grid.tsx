@@ -10,6 +10,7 @@ import {
   youtubeId,
   youtubeThumb,
 } from "@/lib/gallery";
+import { Watermark } from "@/components/site/watermark";
 
 type Filter = "all" | "photo" | "video" | "reel";
 
@@ -129,11 +130,15 @@ export function GalleryGrid() {
             <X className="h-5 w-5" />
           </button>
           <figure className="max-h-[85svh] max-w-5xl" onClick={(event) => event.stopPropagation()}>
-            <img
-              src={open.src}
-              alt={open.alt}
-              className="max-h-[80svh] w-full rounded-xl object-contain"
-            />
+            <div className="relative mx-auto w-fit max-w-full">
+              <img
+                src={open.src}
+                alt={open.alt}
+                draggable={false}
+                className="max-h-[80svh] max-w-full rounded-xl object-contain"
+              />
+              <Watermark className="right-4 top-4 sm:text-sm" />
+            </div>
             <figcaption className="mt-3 flex items-center justify-between text-sm">
               <span className="text-fg">{open.title}</span>
               <span className="text-muted-foreground">{open.tag}</span>
@@ -162,8 +167,10 @@ function PhotoTile({
         <img
           src={item.src}
           alt={item.alt}
+          draggable={false}
           className="h-full w-full object-cover transition-transform duration-[var(--motion-fast)] ease-[var(--ease-out)] group-hover:scale-[1.03]"
         />
+        <Watermark />
         <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-[linear-gradient(to_top,rgba(12,13,14,0.85),transparent)] px-4 py-4">
           <span className="text-sm font-medium text-fg">{item.title}</span>
           <span className="text-xs text-muted-foreground">{item.tag}</span>
@@ -246,8 +253,10 @@ function ReelPhotoTile({
         <img
           src={item.src}
           alt={item.alt}
+          draggable={false}
           className="h-full w-full object-cover transition-transform duration-[var(--motion-fast)] ease-[var(--ease-out)] group-hover:scale-[1.03]"
         />
+        <Watermark className="right-2 top-2" />
         <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-[linear-gradient(to_top,rgba(12,13,14,0.85),transparent)] px-3 py-3">
           <span className="text-sm font-medium text-fg">{item.title}</span>
           <span className="text-xs text-muted-foreground">{item.tag}</span>
