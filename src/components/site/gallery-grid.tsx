@@ -11,6 +11,7 @@ import {
   youtubeThumb,
 } from "@/lib/gallery";
 import { Watermark } from "@/components/site/watermark";
+import { ThumbImage } from "@/components/site/thumb-image";
 
 type Filter = "all" | "photo" | "video" | "reel";
 
@@ -164,12 +165,9 @@ function PhotoTile({
       className="group overflow-hidden rounded-xl text-left"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-surface">
-        <img
+        <ThumbImage
           src={item.src}
           alt={item.alt}
-          draggable={false}
-          loading="lazy"
-          decoding="async"
           className="h-full w-full object-cover transition-transform duration-[var(--motion-fast)] ease-[var(--ease-out)] group-hover:scale-[1.03]"
         />
         <Watermark />
@@ -252,12 +250,9 @@ function ReelPhotoTile({
       className="group overflow-hidden rounded-xl text-left"
     >
       <div className="relative aspect-[9/16] overflow-hidden bg-surface">
-        <img
+        <ThumbImage
           src={item.src}
           alt={item.alt}
-          draggable={false}
-          loading="lazy"
-          decoding="async"
           className="h-full w-full object-cover transition-transform duration-[var(--motion-fast)] ease-[var(--ease-out)] group-hover:scale-[1.03]"
         />
         <Watermark className="right-2 top-2" />

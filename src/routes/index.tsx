@@ -6,6 +6,7 @@ import { QuotePanel } from "@/components/site/quote-panel";
 import { ContactForm } from "@/components/site/contact-form";
 import { SocialLinks } from "@/components/site/social-links";
 import { Watermark } from "@/components/site/watermark";
+import { ThumbImage } from "@/components/site/thumb-image";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({ component: Home });
@@ -119,10 +120,9 @@ function Home() {
             {WORK.map((item) => (
               <figure key={item.src} className={`group overflow-hidden rounded-xl ${item.span}`}>
                 <div className="relative aspect-[16/10] overflow-hidden bg-surface">
-                  <img
+                  <ThumbImage
                     src={item.src}
                     alt={item.title}
-                    draggable={false}
                     className="h-full w-full object-cover transition-transform duration-[var(--motion-fast)] ease-[var(--ease-out)] group-hover:scale-[1.03]"
                   />
                   <Watermark />

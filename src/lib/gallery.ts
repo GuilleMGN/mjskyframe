@@ -292,6 +292,27 @@ export const GALLERY: GalleryItem[] = [
     tag: "Cityscape",
     alt: "Aerial of a distant city's lights under an orange dusk horizon",
   },
+  {
+    kind: "photo",
+    src: "/images/work-neighborhood.jpg",
+    title: "Lakefront Homes",
+    tag: "Real Estate",
+    alt: "Aerial of lakefront homes with a floatplane and boat moored at the docks",
+  },
+  {
+    kind: "photo",
+    src: "/images/hero-campus.jpg",
+    title: "Amusement Park at Night",
+    tag: "Attractions",
+    alt: "Aerial of an amusement park with roller coasters and city lights at night",
+  },
+  {
+    kind: "photo",
+    src: "/images/demolition-derby.jpg",
+    title: "Demolition Derby Night",
+    tag: "Events",
+    alt: "Aerial of cars colliding in a demolition derby with a crowd in the grandstand",
+  },
 ];
 
 export function youtubeId(input: string): string {
@@ -319,4 +340,14 @@ export function youtubeThumb(id: string): string {
 
 export function youtubeEmbed(id: string): string {
   return `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+}
+
+/**
+ * Small preview version of a photo, used for grid tiles. For `/images/foo.JPG` this is
+ * `/images/thumbs/foo.jpg`. The full-size original is still what opens full-screen.
+ * If a thumbnail doesn't exist yet, <ThumbImage> falls back to the original automatically.
+ */
+export function thumbSrc(src: string): string {
+  const name = src.split("/").pop() ?? src;
+  return `/images/thumbs/${name.replace(/\.[^.]+$/, "")}.jpg`;
 }
