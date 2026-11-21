@@ -168,6 +168,8 @@ function PhotoTile({
           src={item.src}
           alt={item.alt}
           draggable={false}
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover transition-transform duration-[var(--motion-fast)] ease-[var(--ease-out)] group-hover:scale-[1.03]"
         />
         <Watermark />
@@ -254,6 +256,8 @@ function ReelPhotoTile({
           src={item.src}
           alt={item.alt}
           draggable={false}
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover transition-transform duration-[var(--motion-fast)] ease-[var(--ease-out)] group-hover:scale-[1.03]"
         />
         <Watermark className="right-2 top-2" />
