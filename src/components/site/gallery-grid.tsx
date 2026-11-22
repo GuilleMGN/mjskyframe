@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
-import { Play, X } from "lucide-react";
+import { useCallback, useMemo, useState } from "react";
+import { Play } from "lucide-react";
 import {
   GALLERY,
   type GalleryPhoto,
@@ -12,6 +12,7 @@ import {
 } from "@/lib/gallery";
 import { Watermark } from "@/components/site/watermark";
 import { ThumbImage } from "@/components/site/thumb-image";
+import { PhotoViewer, type ViewerImage } from "@/components/site/photo-viewer";
 
 type Filter = "all" | "photo" | "video" | "reel";
 
@@ -22,13 +23,12 @@ const FILTERS: { id: Filter; label: string }[] = [
   { id: "reel", label: "Reels" },
 ];
 
-/** What the full-screen viewer needs (any photo, including vertical reel photos). */
-type LightboxImage = Pick<GalleryPhoto, "src" | "alt" | "title" | "tag">;
+type LightboxImage = ViewerImage;
 
 export function GalleryGrid() {
   const [filter, setFilter] = useState<Filter>("all");
   const [playing, setPlaying] = useState<string | null>(null);
-  const [open, setOpen] = useState<LightboxImage | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const { wide, reels } = useMemo(() => {
     const items = filter === "all" ? GALLERY : GALLERY.filter((item) => item.kind === filter);
@@ -38,19 +38,23 @@ export function GalleryGrid() {
     };
   }, [filter]);
 
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(null);
-    };
-    window.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [open]);
+  // Every photo (wide photos, then vertical reel photos) in the order shown, for next/previous.
+  const viewable = useMemo<ViewerImage[]>(
+    () => [
+      ...wide.filter((item): item is GalleryPhoto => item.kind === "photo"),
+      ...reels.filter((item): item is Extract<GalleryReel, { src: string }> => "src" in item),
+    ],
+    [wide, reels],
+  );
+
+  const openPhoto = useCallback(
+    (item: ViewerImage) => {
+      const index = viewable.findIndex((photo) => photo.src === item.src);
+      if (index >= 0) setOpenIndex(index);
+    },
+    [viewable],
+  );
+  const closeViewer = useCallback(() => setOpenIndex(null), []);
 
   return (
     <>
@@ -75,7 +79,7 @@ export function GalleryGrid() {
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           {wide.map((item) =>
             item.kind === "photo" ? (
-              <PhotoTile key={item.src} item={item} onOpen={setOpen} />
+              <PhotoTile key={item.src} item={item} onOpen={openPhoto} />
             ) : (
               <VideoTile
                 key={item.youtube}
@@ -103,7 +107,7 @@ export function GalleryGrid() {
                   onPlay={() => setPlaying(item.youtube)}
                 />
               ) : (
-                <ReelPhotoTile key={item.src} item={item} onOpen={setOpen} />
+                <ReelPhotoTile key={item.src} item={item} onOpen={openPhoto} />
               ),
             )}
           </div>
@@ -114,38 +118,13 @@ export function GalleryGrid() {
         <p className="mt-8 text-sm text-muted-foreground">Nothing here yet. Check back soon.</p>
       ) : null}
 
-      {open ? (
-        <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-bg/90 p-4"
-          onClick={() => setOpen(null)}
-          role="dialog"
-          aria-modal="true"
-          aria-label={open.title}
-        >
-          <button
-            type="button"
-            className="absolute right-4 top-20 inline-flex h-11 w-11 items-center justify-center rounded-md text-fg"
-            aria-label="Close"
-            onClick={() => setOpen(null)}
-          >
-            <X className="h-5 w-5" />
-          </button>
-          <figure className="max-h-[85svh] max-w-5xl" onClick={(event) => event.stopPropagation()}>
-            <div className="relative mx-auto w-fit max-w-full">
-              <img
-                src={open.src}
-                alt={open.alt}
-                draggable={false}
-                className="max-h-[80svh] max-w-full rounded-xl object-contain"
-              />
-              <Watermark className="right-4 top-4 sm:text-sm" />
-            </div>
-            <figcaption className="mt-3 flex items-center justify-between text-sm">
-              <span className="text-fg">{open.title}</span>
-              <span className="text-muted-foreground">{open.tag}</span>
-            </figcaption>
-          </figure>
-        </div>
+      {openIndex !== null && viewable[openIndex] ? (
+        <PhotoViewer
+          images={viewable}
+          index={openIndex}
+          onIndexChange={setOpenIndex}
+          onClose={closeViewer}
+        />
       ) : null}
     </>
   );
