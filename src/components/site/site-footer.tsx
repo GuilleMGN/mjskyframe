@@ -1,10 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/site/logo";
 
-export function SiteFooter() {
+export function SiteFooter({ wide = false }: { wide?: boolean }) {
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-end sm:justify-between">
+      <div
+        className={`mx-auto flex flex-col gap-6 px-5 py-10 sm:flex-row sm:items-end sm:justify-between ${
+          wide ? "max-w-[1440px] sm:px-8" : "max-w-6xl"
+        }`}
+      >
         <div>
           <Link to="/" className="flex items-center gap-2 text-fg">
             <Logo className="h-7 w-auto" />

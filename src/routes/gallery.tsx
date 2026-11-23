@@ -14,9 +14,9 @@ export const Route = createFileRoute("/gallery")({
 function GalleryPage() {
   return (
     <div className="min-h-screen bg-bg text-fg">
-      <SiteHeader />
+      <SiteHeader wide />
       <main className="pt-16">
-        <section className="mx-auto max-w-6xl px-5 pb-10 pt-16">
+        <section className="mx-auto max-w-[1440px] px-5 pb-10 pt-16 sm:px-8">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Gallery</p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl text-fg sm:text-6xl">
             Photos, videos, and reels from above.
@@ -26,11 +26,11 @@ function GalleryPage() {
             a video or reel right on the page. Use the filters to view photos, videos, or reels.
           </p>
         </section>
-        <section className="mx-auto max-w-6xl px-5 pb-20">
+        <section className="mx-auto max-w-[1440px] px-5 pb-20 sm:px-8">
           <GalleryGrid />
         </section>
         <section className="border-t border-border bg-surface/40">
-          <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-5 py-16 sm:flex-row sm:items-center">
+          <div className="mx-auto flex max-w-[1440px] flex-col items-start justify-between gap-6 px-5 py-16 sm:flex-row sm:items-center sm:px-8">
             <div>
               <h2 className="font-display text-3xl text-fg sm:text-4xl">Planning an aerial project?</h2>
               <p className="mt-2 text-sm text-muted-foreground">
@@ -47,7 +47,7 @@ function GalleryPage() {
           </div>
         </section>
       </main>
-      <SiteFooter />
+      <SiteFooter wide />
     </div>
   );
 }

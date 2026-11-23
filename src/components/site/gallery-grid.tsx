@@ -76,7 +76,7 @@ export function GalleryGrid() {
       </div>
 
       {wide.length > 0 ? (
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {wide.map((item) =>
             item.kind === "photo" ? (
               <PhotoTile key={item.src} item={item} onOpen={openPhoto} />
@@ -97,7 +97,7 @@ export function GalleryGrid() {
           {filter === "all" ? (
             <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-accent">Reels</p>
           ) : null}
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
             {reels.map((item) =>
               "youtube" in item ? (
                 <ReelVideoTile
@@ -235,7 +235,7 @@ function ReelPhotoTile({
           className="h-full w-full object-cover transition-transform duration-[var(--motion-fast)] ease-[var(--ease-out)] group-hover:scale-[1.03]"
         />
         <Watermark className="right-2 top-2" />
-        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-[linear-gradient(to_top,rgba(12,13,14,0.85),transparent)] px-3 py-3">
+        <div className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-0.5 bg-[linear-gradient(to_top,rgba(12,13,14,0.85),transparent)] px-3 py-3">
           <span className="text-sm font-medium text-fg">{item.title}</span>
           <span className="text-xs text-muted-foreground">{item.tag}</span>
         </div>
@@ -287,7 +287,7 @@ function ReelVideoTile({
         <span className="absolute left-1/2 top-1/2 inline-flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-bg/80 text-fg">
           <Play className="h-4 w-4 fill-current" />
         </span>
-        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between px-3 py-3">
+        <div className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-0.5 px-3 py-3">
           <span className="text-sm font-medium text-fg">{item.title}</span>
           <span className="text-xs text-muted-foreground">{item.tag}</span>
         </div>
