@@ -24,28 +24,52 @@ const FILTERS: { id: Filter; label: string }[] = [
 ];
 
 type LightboxImage = ViewerImage;
+type ReelPhoto = Extract<GalleryReel, { src: string }>;
+
+/** One slot in the photo grid: a single photo/video, or two vertical reel photos sharing a slot. */
+type Cell =
+  | { kind: "item"; item: GalleryPhoto | GalleryVideo }
+  | { kind: "pair"; reels: ReelPhoto[] };
+
+// In the "All" view, vertical reel photos go two to a slot. The first pair lands in the second
+// row of the grid, then another pair every few rows.
+const PAIR_FIRST_AT = 5;
+const PAIR_EVERY = 9;
 
 export function GalleryGrid() {
   const [filter, setFilter] = useState<Filter>("all");
   const [playing, setPlaying] = useState<string | null>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const { wide, reels } = useMemo(() => {
+  const { cells, reelsBelow } = useMemo(() => {
     const items = filter === "all" ? GALLERY : GALLERY.filter((item) => item.kind === filter);
-    return {
-      wide: items.filter((item): item is GalleryPhoto | GalleryVideo => item.kind !== "reel"),
-      reels: items.filter((item): item is GalleryReel => item.kind === "reel"),
-    };
+    const wide = items.filter((item): item is GalleryPhoto | GalleryVideo => item.kind !== "reel");
+    const reels = items.filter((item): item is GalleryReel => item.kind === "reel");
+
+    const cells: Cell[] = wide.map((item) => ({ kind: "item", item }));
+    let reelsBelow = reels;
+
+    if (filter === "all") {
+      // Reel photos pair up inside the grid; reel videos (if any) get their own row below.
+      const photos = reels.filter((item): item is ReelPhoto => "src" in item);
+      reelsBelow = reels.filter((item) => "youtube" in item);
+      for (let i = 0, at = PAIR_FIRST_AT; i < photos.length; i += 2, at += PAIR_EVERY) {
+        cells.splice(Math.min(at, cells.length), 0, { kind: "pair", reels: photos.slice(i, i + 2) });
+      }
+    }
+    return { cells, reelsBelow };
   }, [filter]);
 
-  // Every photo (wide photos, then vertical reel photos) in the order shown, for next/previous.
-  const viewable = useMemo<ViewerImage[]>(
-    () => [
-      ...wide.filter((item): item is GalleryPhoto => item.kind === "photo"),
-      ...reels.filter((item): item is Extract<GalleryReel, { src: string }> => "src" in item),
-    ],
-    [wide, reels],
-  );
+  // Every photo in the order shown, for the viewer's next/previous.
+  const viewable = useMemo<ViewerImage[]>(() => {
+    const out: ViewerImage[] = [];
+    for (const cell of cells) {
+      if (cell.kind === "pair") out.push(...cell.reels);
+      else if (cell.item.kind === "photo") out.push(cell.item);
+    }
+    for (const reel of reelsBelow) if ("src" in reel) out.push(reel);
+    return out;
+  }, [cells, reelsBelow]);
 
   const openPhoto = useCallback(
     (item: ViewerImage) => {
@@ -75,30 +99,36 @@ export function GalleryGrid() {
         ))}
       </div>
 
-      {wide.length > 0 ? (
+      {cells.length > 0 ? (
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {wide.map((item) =>
-            item.kind === "photo" ? (
-              <PhotoTile key={item.src} item={item} onOpen={openPhoto} />
+          {cells.map((cell) =>
+            cell.kind === "pair" ? (
+              <ReelPairTile
+                key={cell.reels.map((reel) => reel.src).join("|")}
+                reels={cell.reels}
+                onOpen={openPhoto}
+              />
+            ) : cell.item.kind === "photo" ? (
+              <PhotoTile key={cell.item.src} item={cell.item} onOpen={openPhoto} />
             ) : (
               <VideoTile
-                key={item.youtube}
-                item={item}
-                active={playing === item.youtube}
-                onPlay={() => setPlaying(item.youtube)}
+                key={cell.item.youtube}
+                item={cell.item}
+                active={playing === cell.item.youtube}
+                onPlay={() => setPlaying(cell.item.youtube)}
               />
             ),
           )}
         </div>
       ) : null}
 
-      {reels.length > 0 ? (
-        <div className={wide.length > 0 ? "mt-12" : "mt-8"}>
+      {reelsBelow.length > 0 ? (
+        <div className={cells.length > 0 ? "mt-12" : "mt-8"}>
           {filter === "all" ? (
             <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-accent">Reels</p>
           ) : null}
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
-            {reels.map((item) =>
+            {reelsBelow.map((item) =>
               "youtube" in item ? (
                 <ReelVideoTile
                   key={item.youtube}
@@ -114,7 +144,7 @@ export function GalleryGrid() {
         </div>
       ) : null}
 
-      {wide.length === 0 && reels.length === 0 ? (
+      {cells.length === 0 && reelsBelow.length === 0 ? (
         <p className="mt-8 text-sm text-muted-foreground">Nothing here yet. Check back soon.</p>
       ) : null}
 
@@ -291,6 +321,53 @@ function ReelVideoTile({
           <span className="text-sm font-medium text-fg">{item.title}</span>
           <span className="text-xs text-muted-foreground">{item.tag}</span>
         </div>
+      </div>
+    </button>
+  );
+}
+
+/** One grid slot holding two vertical reel photos side by side (one if there is an odd one out). */
+function ReelPairTile({
+  reels,
+  onOpen,
+}: {
+  reels: ReelPhoto[];
+  onOpen: (item: LightboxImage) => void;
+}) {
+  if (reels.length === 1) {
+    return (
+      <div className="flex aspect-[16/10] justify-center overflow-hidden rounded-xl bg-surface">
+        <div className="aspect-[9/16] h-full">
+          <ReelHalf item={reels[0]} onOpen={onOpen} />
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="grid aspect-[16/10] grid-cols-2 gap-1 overflow-hidden rounded-xl">
+      {reels.map((item) => (
+        <ReelHalf key={item.src} item={item} onOpen={onOpen} />
+      ))}
+    </div>
+  );
+}
+
+function ReelHalf({ item, onOpen }: { item: ReelPhoto; onOpen: (item: LightboxImage) => void }) {
+  return (
+    <button
+      type="button"
+      onClick={() => onOpen(item)}
+      className="group relative h-full w-full overflow-hidden bg-surface text-left"
+    >
+      <ThumbImage
+        src={item.src}
+        alt={item.alt}
+        className="h-full w-full object-cover transition-transform duration-[var(--motion-fast)] ease-[var(--ease-out)] group-hover:scale-[1.03]"
+      />
+      <Watermark className="right-2 top-2" />
+      <div className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-0.5 bg-[linear-gradient(to_top,rgba(12,13,14,0.85),transparent)] px-3 py-3">
+        <span className="text-sm font-medium text-fg">{item.title}</span>
+        <span className="text-xs text-muted-foreground">{item.tag}</span>
       </div>
     </button>
   );

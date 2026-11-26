@@ -301,17 +301,24 @@ export const GALLERY: GalleryItem[] = [
   },
   {
     kind: "photo",
-    src: "/images/hero-campus.jpg",
-    title: "Amusement Park at Night",
-    tag: "Attractions",
-    alt: "Aerial of an amusement park with roller coasters and city lights at night",
-  },
-  {
-    kind: "photo",
     src: "/images/demolition-derby.jpg",
     title: "Demolition Derby Night",
     tag: "Events",
     alt: "Aerial of cars colliding in a demolition derby with a crowd in the grandstand",
+  },
+  {
+    kind: "reel",
+    src: "/images/tobermory-property-2.jpg",
+    title: "Waterfront Property",
+    tag: "Real Estate",
+    alt: "Vertical aerial of a lakefront house on a rocky shoreline with forest and open water behind it",
+  },
+  {
+    kind: "reel",
+    src: "/images/westfield-river.jpg",
+    title: "River Paddleboarder",
+    tag: "Recreation",
+    alt: "Vertical aerial of a paddleboarder on a calm river lined with trees under a bright blue sky",
   },
 ];
 
